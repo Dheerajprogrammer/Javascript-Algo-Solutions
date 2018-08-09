@@ -117,3 +117,24 @@ Person1.age =27;
 Person1.state ='Karnataka';
 
 Person1.printPerson();
+
+
+/******************Dynamic Prototype Pattern*********************************/
+var peopleDynamicProto = function(name,age,state){
+    this.age = age;
+    this.name = name;
+    this.state = state;
+
+    if( typeof this.printPerson !== 'function'){    
+    peopleDynamicProto.prototype.printPerson = function(){
+        console.log(this.name+ ',' + this.age + ',' + this.state);
+      }
+    }
+  }
+
+
+
+
+  var Person1 = new peopleDynamicProto("Dheeraj",27,"Punjab");
+
+  Person1.printPerson();
