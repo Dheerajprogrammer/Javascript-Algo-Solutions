@@ -42,3 +42,32 @@ var SingleD = mysingeleton.getInstance();
 console.log(SingleA.publicProperty);
 console.log(SingleA.getRandom() ===SingleB.getRandom());
 console.log(SingleC.getRandom() ===SingleD.getRandom());
+
+
+
+/***********************Factory Pattern*************************
+It creates a objects.
+**/
+
+
+var peopleFactory = function(name, age, state){
+  var temp ={};
+  temp.name=name;
+  temp.age=age;
+  temp.state=state;
+  
+  temp.printPerson = function(){
+  console.log(this.name+ ',' + this.age + ',' + this.state);
+  }
+  
+  return temp;
+}
+
+
+var Person1 = peopleFactory("Dheeraj",27,"Punjab");
+var Person2 = peopleFactory("Swati",26,"Punjab");
+var Person3 = peopleFactory("DK",27,"Banglore");
+
+Person1.printPerson();
+Person2.printPerson();
+Person3.printPerson();
