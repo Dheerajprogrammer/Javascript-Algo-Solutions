@@ -1,0 +1,44 @@
+/**************Singeleton Design Pattern**********************/
+var mysingeleton = (function(){
+var instance;
+  
+  function init(){
+  //singleton
+  //private method/variable
+  //
+  function privateMethod(){
+  console.log('I am private method');
+  }
+    var privateVar = "I am also private";
+    var privateRandom = Math.random();
+    return{
+    publicMethod: function(){
+    console.log('The Public can see me');
+    },
+      publicProperty: "I am also pubclic",
+      getRandom: function(){
+      return privateRandom;
+      }
+    }
+  }
+  return {
+  // get the Singleton instance if one exists
+  getInstance: function(){
+  if(!instance){
+  instance = init();
+  }
+    return instance;
+  }
+  }
+})();
+
+
+var SingleA = mysingeleton.getInstance();
+var SingleB = mysingeleton.getInstance();
+
+var SingleC = mysingeleton.getInstance();
+var SingleD = mysingeleton.getInstance();
+
+console.log(SingleA.publicProperty);
+console.log(SingleA.getRandom() ===SingleB.getRandom());
+console.log(SingleC.getRandom() ===SingleD.getRandom());
